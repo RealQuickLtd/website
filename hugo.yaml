@@ -1,0 +1,151 @@
+baseURL: https://realquick.ltd
+languageCode: en-us
+title: RealQuick, Ltd
+paginate: 5
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+minify:
+  disableXML: false
+  minifyOutput: true
+
+params:
+  env: production
+  title: RealQuick, Ltd
+  description: "The digital playground of Quick for blogging, dumping ideas, and managing projects. Welcome to the realm of speed and simplicity :)"
+  keywords:
+    [
+      Blog,
+      linux,
+      foss,
+      android,
+      mod,
+      tips,
+      top,
+      web,
+      development,
+      apps,
+      users,
+      hack,
+      framework,
+    ]
+  author: Quick
+  images: ["assets/img/default.png"]
+  DateFormat: "January 2, 2006"
+  defaultTheme: auto # dark, light
+
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShareButtons: ["reddit","whatsapp","ycombinator","linkedin", "twitter"]
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  comments: true
+  hidemeta: false
+  hideSummary: false
+  ShowToc: true
+  TocOpen: true
+
+  assets:
+    disableHLJS: true # to disable highlight.js
+    disableFingerprinting: true
+    favicon: "/assets/img/logo/android-chrome-512x512.png"
+    favicon16x16: "/assets/img/logo/favicon-16x16.png"
+    favicon32x32: "/assets/img/logo/favicon-32x32.png"
+    apple_touch_icon: "/assets/img/logo/apple-touch-icon.png"
+    safari_pinned_tab: "/assets/img/logo/android-chrome-512x512.png"
+
+  label:
+    text: "RealQuick ⚡"
+    icon: /assets/img/logo/logo.svg
+    iconHeight: 35
+
+  # home-info mode
+  homeInfoParams:
+    Title: "\U0001F44B Welcome to RealQuick, Ltd"
+    Content: The digital playground of Quick for blogging, dumping ideas, and managing projects. Welcome to the realm of speed and simplicity.
+
+  socialIcons:
+    - name: twitter
+      url: "https://twitter.com/RealQuickLtd"
+    - name: GitLab
+      url: "https://gitlab.com/RealQuickLtd"
+    - name: GitHub
+      url: "https://github.com/RealQuickLtd"
+
+  cover:
+    hidden: true # hide everywhere but not in structured data
+    hiddenInList: true # hide on list pages and home
+    hiddenInSingle: true # hide on single page
+
+  editPost:
+    URL: "https://gitlab.com/RealQuickLtd/website/-/blob/main/content"
+    appendFilePath: true # to append file path to Edit link
+
+  # for search
+  # https://fusejs.io/api/options.html
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content"]
+menu:
+  main:
+    # - identifier: categories
+    #   name: Categories
+    #   url: /categories/
+    #   weight: 10
+    - identifier: web
+      name: Web
+      url: /tags/web/
+      weight: 17
+    - identifier: android
+      name: Android
+      url: /tags/android/
+      weight: 18
+    - identifier: linux
+      name: Linux
+      url: /tags/linux/
+      weight: 19
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 20
+    - identifier: settings
+      name: Settings
+      url: /settings/
+      weight: 30
+# Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
+# pygmentsUseClasses: true
+# markup:
+#     highlight:
+#         # anchorLineNos: true
+#         codeFences: true
+#         guessSyntax: true
+#         lineNos: true
+#         style: monokai
+
+outputs:
+  home:
+    - HTML
+    # - RSS
+    - JSON # is necessary
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+permalinks:
+  posts: /:slug/
+
+
+
