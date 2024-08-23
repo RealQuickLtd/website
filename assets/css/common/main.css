@@ -30,7 +30,11 @@
 
 .social-icons a {
     display: inline-flex;
-    padding: 10px;
+    padding: 10px 0;
+}
+
+.social-icons a:not(:last-of-type) {
+    margin-inline-end: 15px;
 }
 
 .social-icons a svg {
@@ -63,4 +67,13 @@ pre {
 div.highlight:hover .copy-code,
 pre:hover .copy-code {
     display: block;
+}
+
+a {
+    transition: 200ms;
+    color: var(--hoverback);
+}
+
+a:hover:not(.logo a):not(.post-entry a):not(#menu a):not(.terms-tags a):not(.post-tags a):not(#top-link) {
+    box-shadow: 0 1.5px;
 }

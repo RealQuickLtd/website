@@ -1,21 +1,38 @@
 .nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    background: var(--theme);
     max-width: calc(var(--nav-width) + var(--gap) * 2);
     margin-inline-start: auto;
     margin-inline-end: auto;
     line-height: var(--header-height);
+    border: 1px solid var(--tertiary);
+    border-radius: var(--radius);
+    margin-top: var(--gap);
+    user-select: none;
+}
+
+@media screen and (max-width: 1120px) {
+    .nav {
+        border-width: 0;
+        box-shadow: 0 1px var(--tertiary);
+        border-radius: 0;
+        margin: 0;
+        max-width: none;
+    }
+}
+
+body:not(.list) .nav {
+    background: var(--code-bg);
 }
 
 .nav a {
     display: block;
+    color: var(--primary);
 }
 
-.logo,
-#menu {
+.logo {
     display: flex;
-    margin: auto var(--gap);
+    margin: auto 13px;
+    justify-content: space-between;
 }
 
 .logo {
@@ -25,69 +42,30 @@
 .logo a {
     font-size: 24px;
     font-weight: 700;
+    padding-left: 9px;
 }
 
-.logo a img, .logo a svg {
+.logo a:hover {
+    opacity: .6;
+}
+
+.logo a img,
+.logo a svg {
     display: inline;
     vertical-align: middle;
     pointer-events: none;
     transform: translate(0, -10%);
+}
+
+.logo a img {
     border-radius: 6px;
     margin-inline-end: 8px;
 }
 
-button#theme-toggle {
-    font-size: 26px;
-    margin: auto 4px;
-}
-
-body.dark #moon {
-    vertical-align: middle;
-    display: none;
-}
-
-body:not(.dark) #sun {
-    display: none;
-}
-
-#menu {
-    list-style: none;
-    word-break: keep-all;
-    overflow-x: auto;
-    white-space: nowrap;
-}
-
-#menu li + li {
-    margin-inline-start: var(--gap);
-}
-
-#menu a {
-    font-size: 16px;
-}
-
-#menu .active {
-    font-weight: 500;
-    border-bottom: 2px solid currentColor;
-}
-
-.lang-switch li,
-.lang-switch ul,
 .logo-switches {
     display: inline-flex;
-    margin: auto 4px;
 }
 
-.lang-switch {
-    display: flex;
-    flex-wrap: inherit;
-}
-
-.lang-switch a {
-    margin: auto 3px;
-    font-size: 16px;
-    font-weight: 500;
-}
-
-.logo-switches {
-    flex-wrap: inherit;
+.logo-switches a {
+    padding: 0 7px;
 }

@@ -7,7 +7,7 @@
 
 <head>
     {{- block "404-noindex" . }}
-    {{- if (ne .Params.robotsNoIndex true) }}
+    {{- if (ne .Params.noindex true) }}
     <meta name="robots" content="index, follow">
     {{- else }}
     <meta name="robots" content="noindex, nofollow">
@@ -19,11 +19,8 @@
 </head>
 
 <body class="
-{{- if (or (ne .Kind `page` ) (eq .Layout `archives`) (eq .Layout `search`)) -}}
+{{- if (or (ne .Kind `page` ) (eq .Layout `archives`) (eq .Params.navigation true)) -}}
 {{- print "list" -}}
-{{- end -}}
-{{- if eq site.Params.defaultTheme `dark` -}}
-{{- print " dark" }}
 {{- end -}}
 " id="top">
     {{- partialCached "header.html" . .Page -}}

@@ -1,10 +1,10 @@
-import * as params from '@params';
-
 let fuse; // holds our search engine
 let resList = document.getElementById('searchResults');
 let sInput = document.getElementById('searchInput');
 let first, last, current_elem = null
 let resultsAvailable = false;
+const searchQuery = new URLSearchParams(location.search).get("q");
+sInput.value = searchQuery;
 
 // load our search index
 window.onload = function () {
@@ -16,32 +16,25 @@ window.onload = function () {
                 if (data) {
                     // fuse.js options; check fuse.js website for details
                     let options = {
-                        distance: 100,
+                        isCaseSensitive: false,
+                        includeScore: false,
+                        includeMatches: true,
+                        minMatchCharLength: 1,
+                        shouldSort: true,
+                        findAllMatches: false,
+                        location: 0,
+                        distance: 1000,
                         threshold: 0.4,
                         ignoreLocation: true,
                         keys: [
                             'title',
                             'permalink',
-                            'summary',
-                            'content'
+                            'description',
+                            'summary'
                         ]
                     };
-                    if (params.fuseOpts) {
-                        options = {
-                            isCaseSensitive: params.fuseOpts.iscasesensitive ?? false,
-                            includeScore: params.fuseOpts.includescore ?? false,
-                            includeMatches: params.fuseOpts.includematches ?? false,
-                            minMatchCharLength: params.fuseOpts.minmatchcharlength ?? 1,
-                            shouldSort: params.fuseOpts.shouldsort ?? true,
-                            findAllMatches: params.fuseOpts.findallmatches ?? false,
-                            keys: params.fuseOpts.keys ?? ['title', 'permalink', 'summary', 'content'],
-                            location: params.fuseOpts.location ?? 0,
-                            threshold: params.fuseOpts.threshold ?? 0.4,
-                            distance: params.fuseOpts.distance ?? 100,
-                            ignoreLocation: params.fuseOpts.ignorelocation ?? true
-                        }
-                    }
                     fuse = new Fuse(data, options); // build the index from the json file
+                    sInput.dispatchEvent(new Event("keyup"));
                 }
             } else {
                 console.log(xhr.responseText);
@@ -78,11 +71,7 @@ sInput.onkeyup = function (e) {
     // in the search box
     if (fuse) {
         let results;
-        if (params.fuseOpts) {
-            results = fuse.search(this.value.trim(), {limit: params.fuseOpts.limit}); // the actual query being run using fuse.js along with options
-        } else {
-            results = fuse.search(this.value.trim()); // the actual query being run using fuse.js
-        }
+        results = fuse.search(this.value.trim()); // the actual query being run using fuse.js
         if (results.length !== 0) {
             // build our html if result exists
             let resultSet = ''; // our results bucket

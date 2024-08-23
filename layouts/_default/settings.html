@@ -1,0 +1,31 @@
+{{ define "customLoad" }}
+{{- $css := (resources.Get "css/settings.css") | resources.Minify }}
+<link crossorigin="anonymous" href="{{ $css.RelPermalink }}" rel="preload stylesheet" as="style">
+{{- $js := resources.Get "js/settings.js" | resources.Minify }}
+<script defer crossorigin="anonymous" src="{{ $js.RelPermalink }}"></script>
+{{ end }}
+
+{{- define "main" }}
+
+<header class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{- if .Description }}
+    <div class="post-description">
+    {{ .Description }}
+    </div>
+    {{- end }}
+</header>
+
+<div id="settings" class="no-transition">
+    <label class="setblock" for="htToggle">Hide titlebar on scroll<label class="switch">
+            <input class="inpcheck" type="checkbox" id="htToggle" autocomplete="off" />
+            <span class="slider"></span></label></label>
+    <label class="setblock" for="dtToggle">Dark theme<label class="switch">
+            <input class="inpcheck" id="dtToggle" type="checkbox" autocomplete="off" />
+            <span class="slider"></span></label></label>
+    <label class="setblock" for="btToggle">Hide back to top button<label class="switch">
+            <input class="inpcheck" id="btToggle" type="checkbox" autocomplete="off" />
+            <span class="slider"></span></label></label>
+</div>
+
+{{- end }}{{/* end main */}}

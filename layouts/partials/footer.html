@@ -1,23 +1,21 @@
 {{- if not (.Param "hideFooter") }}
 <footer class="footer">
     {{- if not site.Params.footer.hideCopyright }}
-        {{- if site.Copyright }}
-        <span>{{ site.Copyright | markdownify }}</span>
-        {{- else }}
-        <span>&copy; {{ now.Year }} <a href="{{ "" | absLangURL }}">{{ site.Title }}</a></span>
-        {{- end }}
-        {{- print " · "}}
+    {{- if site.Copyright }}
+    <span>{{ site.Copyright | markdownify }}</span>
+    {{- else }}
+    <span>&copy; {{ now.Year }} <a href="{{ "" | absLangURL }}">{{ site.Title }}</a></span>
     {{- end }}
-
-    {{- with site.Params.footer.text }}
-        {{ . | markdownify }}
-        {{- print " · "}}
+    {{- print " · "}}
     {{- end }}
 
     <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+        <a href="/credits/" rel="noopener noreferrer">Credits</a>
+    </span>
+
+    <span>
+        <a href="https://github.com/RealQuickLtd/website?tab=readme-ov-file#license" rel="noopener noreferrer"
+            target="_blank">License</a>
     </span>
 </footer>
 {{- end }}
@@ -74,21 +72,6 @@
             mybutton.style.opacity = "0";
         }
     };
-
-</script>
-{{- end }}
-
-{{- if (not site.Params.disableThemeToggle) }}
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
 
 </script>
 {{- end }}
