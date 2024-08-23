@@ -1,12 +1,7 @@
 @media screen and (max-width: 768px) {
     /* theme-vars */
     :root {
-        --gap: 14px;
-    }
-
-    /* profile-mode */
-    .profile img {
-        transform: scale(0.85);
+        --gap: 16px;
     }
 
     /* post-entry */

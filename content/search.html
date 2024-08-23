@@ -1,0 +1,18 @@
+---
+title: "Search"
+placeholder: "Search ↵"
+hideJsonSchema: true
+disableShare: true
+ShowReadingTime: false
+hidemeta: true
+layout: navigation
+loadme: search.css
+---
+<link crossorigin=anonymous rel=preload as=fetch href=../index.json />
+<script defer crossorigin="anonymous" src="/assets/js/fastsearch.js"></script>
+<script defer crossorigin="anonymous" src="/assets/js/fuse.basic.min.js"></script>
+
+<div id="searchbox">
+    <input id="searchInput" autofocus placeholder="Search ↵" aria-label="Search" type="search" autocomplete="off" maxlength="64">
+    <ul id="searchResults" aria-label="Search results"></ul>
+</div>
