@@ -56,6 +56,7 @@
 }
 </script>
 {{- if .IsPage }}
+{{ if not .Params.hideJsonSchema }}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -119,6 +120,7 @@
   }
 }
 </script>
+{{ end }}
 {{- end }}{{/* .IsPage end */}}
 
 {{- end -}}
