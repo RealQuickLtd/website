@@ -1,6 +1,10 @@
 {{ define "404-noindex" }}
 <meta name="robots" content="noindex, nofollow">
 {{ end }}
+{{ define "customLoad" }}
+{{- $css := (resources.Get "css/404.css") | resources.Minify }}
+<link crossorigin="anonymous" href="{{ $css.RelPermalink }}" rel="preload stylesheet" as="style">
+{{ end }}
 {{- define "main" }}
 <div class="not-found">404</div>
 {{- end }}{{/* end main */ -}}
