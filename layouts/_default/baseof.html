@@ -6,6 +6,13 @@
 <html lang="{{ site.Language }}" dir="{{ .Language.LanguageDirection | default "auto" }}">
 
 <head>
+    {{- block "404-noindex" . }}
+    {{- if (ne .Params.robotsNoIndex true) }}
+    <meta name="robots" content="index, follow">
+    {{- else }}
+    <meta name="robots" content="noindex, nofollow">
+    {{- end }}
+    {{- end }}
     {{- partial "head.html" . }}
 </head>
 
