@@ -1,0 +1,33 @@
+{{ define "customLoad" }}
+{{- $css := (resources.Get "css/settings.css") | resources.Minify }}
+<link crossorigin="anonymous" href="{{ $css.RelPermalink }}" rel="preload stylesheet" as="style">
+{{- $js := resources.Get "js/settings.js" | resources.Minify }}
+<script defer crossorigin="anonymous" src="{{ $js.RelPermalink }}"></script>
+{{ end }}
+
+{{- define "main" }}
+
+<header class="page-header">
+    <h1>{{- (printf "%s&nbsp;" .Title ) | htmlUnescape -}}
+    <svg height="28" viewBox="0 -960 960 960" width="28" fill="currentcolor"><path d="M440-120v-240h80v80h320v80H520v80h-80zm-320-80v-80h240v80H120zm160-160v-80H120v-80h160v-80h80v240h-80zm160-80v-80h4e2v80H440zm160-160v-240h80v80h160v80H680v80h-80zm-480-80v-80h4e2v80H120z"></path></svg>
+    </h1>
+    {{- if .Description }}
+    <div class="post-description">
+    {{ .Description }}
+    </div>
+    {{- end }}
+</header>
+
+<div id="settings" class="no-transition">
+    <label class="setblock" for="htToggle">Hide titlebar on scroll<label class="switch">
+            <input class="inpcheck" type="checkbox" id="htToggle" autocomplete="off" />
+            <span class="slider"></span></label></label>
+    <label class="setblock" for="dtToggle">Dark theme<label class="switch">
+            <input class="inpcheck" id="dtToggle" type="checkbox" autocomplete="off" />
+            <span class="slider"></span></label></label>
+    <label class="setblock" for="btToggle">Hide back to top button<label class="switch">
+            <input class="inpcheck" id="btToggle" type="checkbox" autocomplete="off" />
+            <span class="slider"></span></label></label>
+</div>
+
+{{- end }}{{/* end main */}}

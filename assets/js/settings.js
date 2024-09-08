@@ -1,5 +1,3 @@
-document.querySelector(".post-content").classList.add('no-transition');
-
 if (document.documentElement.className.includes("dark")) {
   document.getElementById("dtToggle").checked = true;
 }
@@ -15,9 +13,8 @@ const removeTransition = () => new Promise(resolve => requestAnimationFrame(() =
 
 // Wait for the next tick and remove the class
 removeTransition().then(() => {
-  document.querySelector(".post-content").classList.remove('no-transition');
+  document.querySelector("div#settings").classList.remove('no-transition');
 });
-
 
 // Hide Title Scroll
 document.getElementById("htToggle").addEventListener("click", function () {
