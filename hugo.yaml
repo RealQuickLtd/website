@@ -68,7 +68,7 @@ params:
 
   socialIcons:
     - name: telegram
-      url: "https://telegram.dog/RealQuickLtd"
+      url: "https://telegram.me/RealQuickLtd"
     - name: GitHub
       url: "https://github.com/RealQuickLtd"
 
