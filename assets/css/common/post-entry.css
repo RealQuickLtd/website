@@ -33,6 +33,14 @@
     -webkit-line-clamp: unset;
 }
 
+.post-entry .entry-link {
+    border: 2px solid;
+    box-shadow: 7px 7px #2136f2;
+    transition: .25s;
+    border-radius: var(--radius);
+    outline: 0;
+}
+
 .post-entry {
     position: relative;
     margin-bottom: var(--gap);
@@ -57,7 +65,6 @@
 }
 
 .entry-content {
-    margin: 8px 0;
     color: var(--secondary);
     font-size: 14px;
     line-height: 1.6;
